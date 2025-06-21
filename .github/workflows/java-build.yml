@@ -1,0 +1,27 @@
+name: ☕ Java Build Check
+
+on:
+  push:
+    paths:
+      - 'LeetCode/**/*.java'
+      - 'HackerRank/**/*.java'
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: Compile All Java Files
+      run: |
+        find . -name "*.java" > sources.txt
+        javac @sources.txt
