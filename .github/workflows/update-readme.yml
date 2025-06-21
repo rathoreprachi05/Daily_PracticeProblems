@@ -1,0 +1,37 @@
+name: ⏱️ Auto-update Daily Log
+
+on:
+  push:
+    paths:
+      - 'HackerRank/**'
+      - 'LeetCode/**'
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+
+    - name: Get File Info
+      id: fileinfo
+      run: |
+        echo "TODAY=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+        FILE_PATH=$(git diff --name-only HEAD~1 HEAD | grep -E 'LeetCode/|HackerRank/' | head -n 1)
+        FILE_NAME=$(basename $FILE_PATH)
+        PLATFORM=$(echo $FILE_PATH | cut -d'/' -f1)
+        echo "PLATFORM=$PLATFORM" >> $GITHUB_ENV
+        echo "PROBLEM=$FILE_NAME" >> $GITHUB_ENV
+
+    - name: Update README
+      run: |
+        sed -i '/## 📅 Daily Log/,$!b;/| Date/ a | $TODAY | $PLATFORM | $PROBLEM |' README.md
+
+    - name: Commit and Push
+      run: |
+        git config --global user.name "elliee-bot"
+        git config --global user.email "elliee@users.noreply.github.com"
+        git add README.md
+        git commit -m "🪄 Auto-update log: $PROBLEM on $TODAY"
+        git push
