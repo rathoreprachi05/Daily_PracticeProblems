@@ -1,11 +1,7 @@
 # Daily_PracticeProblems
- Daily coding problems from LeetCode &amp; HackerRank
-# 🧠 Daily Practice Problems
 
 > Daily coding challenge grind using **LeetCode** & **HackerRank**  
 > Building logic, confidence, and consistency one commit at a time!
-
----
 
 ## 📌 Why this repo?
 
