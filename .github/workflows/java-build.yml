@@ -3,8 +3,11 @@ name: ☕ Java Build Check
 on:
   push:
     paths:
+      - 'LeetCode/*.java'
       - 'LeetCode/**/*.java'
+      - 'HackerRank/*.java'
       - 'HackerRank/**/*.java'
+
   pull_request:
 
 jobs:
