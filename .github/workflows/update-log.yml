@@ -17,18 +17,17 @@ jobs:
     - name: Set up Git
       run: |
         git config user.name "Elliee Bot"
-        git config user.email "your-email@example.com"
+        git config user.email "elliee@example.com"
 
     - name: Append entry to README.md
-  run: |
-    DATE=$(date +'%Y-%m-%d')
-    LINE="| $DATE | HackerRank | Auto-log entry triggered by push |"
-    awk '/📅 Daily Log/{print; print ""; print "| Date | Platform | Problem |"; print "|------|----------|---------|"; next} 1' README.md > temp.md
-    awk -v line="$LINE" 'NR==6{print line}1' temp.md > README.md
-
+      run: |
+        DATE=$(date +'%Y-%m-%d')
+        LINE="| $DATE | HackerRank | Auto-log entry triggered by push |"
+        awk '/📅 Daily Log/{print; print ""; print "| Date | Platform | Problem |"; print "|------|----------|---------|"; next} 1' README.md > temp.md
+        awk -v line="$LINE" 'NR==6{print line}1' temp.md > README.md
 
     - name: Commit & Push
       run: |
         git add README.md
-        git commit -m "📝 Auto-update log.md"
+        git commit -m "📝 Auto-update README.md with log entry"
         git push
