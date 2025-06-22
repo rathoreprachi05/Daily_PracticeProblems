@@ -7,7 +7,6 @@ on:
       - 'LeetCode/**/*.java'
       - 'HackerRank/*.java'
       - 'HackerRank/**/*.java'
-
   pull_request:
 
 jobs:
@@ -27,4 +26,6 @@ jobs:
     - name: Compile All Java Files
       run: |
         find . -name "*.java" > sources.txt
+        echo "🔍 Compiling the following files:"
+        cat sources.txt
         javac @sources.txt
