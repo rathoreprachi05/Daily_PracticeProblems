@@ -3,7 +3,9 @@ name: ☕ Java Build Check
 on:
   push:
     paths:
+      - 'LeetCode/*.java'
       - 'LeetCode/**/*.java'
+      - 'HackerRank/*.java'
       - 'HackerRank/**/*.java'
   pull_request:
 
@@ -24,4 +26,6 @@ jobs:
     - name: Compile All Java Files
       run: |
         find . -name "*.java" > sources.txt
+        echo "🔍 Compiling the following files:"
+        cat sources.txt
         javac @sources.txt
