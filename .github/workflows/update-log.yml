@@ -19,12 +19,16 @@ jobs:
         git config user.name "Elliee Bot"
         git config user.email "your-email@example.com"
 
-    - name: Append entry to log.md
-      run: |
-        echo "🗓️ $(date +'%Y-%m-%d') – Auto-log updated on push to HackerRank/ or LeetCode/" >> log.md
+    - name: Append entry to README.md
+  run: |
+    DATE=$(date +'%Y-%m-%d')
+    LINE="| $DATE | HackerRank | Auto-log entry triggered by push |"
+    awk '/📅 Daily Log/{print; print ""; print "| Date | Platform | Problem |"; print "|------|----------|---------|"; next} 1' README.md > temp.md
+    awk -v line="$LINE" 'NR==6{print line}1' temp.md > README.md
+
 
     - name: Commit & Push
       run: |
-        git add log.md
+        git add README.md
         git commit -m "📝 Auto-update log.md"
         git push
