@@ -18,5 +18,9 @@ public class DistinctCounter{
         int[] arr = {1,2,3,4,4,3,2,1};        
         int x = 4;
         System.out.println(hadXDistinct(arr, x));
+
+        int[] arr2 = {1,2,3,4,5,6,6,7,7,8};
+        int x2 = 8;
+        System.err.println(hadXDistinct(arr2, x2));
     }
 }
