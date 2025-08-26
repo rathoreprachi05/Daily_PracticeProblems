@@ -45,6 +45,4 @@ Daily_PracticeProblems/
 
 - Java ☕ (primary)
 - C / C++ / Python (as needed)
-- Git + GitHub for version control 🛠
-
-</details>
+- Git + GitHub for version control 
