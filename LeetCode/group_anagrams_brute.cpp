@@ -16,7 +16,6 @@ public:
         for (int count : freq) {
             if (count != 0) return false;
         }
-
         return true;
     }
 
