@@ -39,7 +39,6 @@ public:
 
             result.push_back(group);
         }
-
         return result;
     }
 };
