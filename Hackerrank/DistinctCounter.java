@@ -2,7 +2,6 @@
 // Link: https://www.hackerrank.com/contests/code4trinity/challenges/distinct-counter
 
 import java.util.HashSet;
-
 public class DistinctCounter{
     public static String hadXDistinct(int[] arr, int x){
         HashSet<Integer> hs = new HashSet<>();
