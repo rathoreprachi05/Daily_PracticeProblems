@@ -12,7 +12,6 @@ public class DistinctCounter{
         if(hs.size() == x) return "yes";
         return "no";
     }
-
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,4,3,2,1};        
         int x = 4;
