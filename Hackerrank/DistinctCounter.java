@@ -8,7 +8,6 @@ public class DistinctCounter{
         for(int i=0; i<arr.length; i++){
             hs.add(arr[i]);
         }
-
         if(hs.size() == x) return "yes";
         return "no";
     }
